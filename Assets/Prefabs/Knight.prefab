@@ -2328,9 +2328,7 @@ GameObject:
   - component: {fileID: 4067990851369642556}
   - component: {fileID: 7529360873095919471}
   - component: {fileID: 4742928606437219784}
-  - component: {fileID: 6320015696468781927}
   - component: {fileID: 2298236919983664831}
-  - component: {fileID: 501798930022116873}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Untagged
@@ -2472,7 +2470,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 15
   _rotationSpeed: 10
-  <IsMoving>k__BackingField: 0
 --- !u!114 &4742928606437219784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2485,21 +2482,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2fdf90892805d24eac5dcdf17fb3e5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputManager: {fileID: 4067990851369642556}
---- !u!114 &6320015696468781927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7136066836993453908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 768915969e5d94749a3cdbc8afa90948, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _equipPoint: {fileID: 6114367247286229412}
-  _owner: {fileID: 7136066836993453908}
 --- !u!114 &2298236919983664831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2513,20 +2495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startHealth: 50
-  <Health>k__BackingField: 0
---- !u!114 &501798930022116873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7136066836993453908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe47f20c368d92b44ab851f0c10ba50d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _inventory: {fileID: 6320015696468781927}
+  <Value>k__BackingField: 0
 --- !u!1 &7152785455170562683
 GameObject:
   m_ObjectHideFlags: 0
