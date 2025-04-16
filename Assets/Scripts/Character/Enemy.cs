@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class Enemy : Character
 {
-    private TriggerBehaviour _triggerBehaviour;
-    private IEnemyBehaviour _startBehaviour;
+    private IEnemyTriggerBehaviour _triggerBehaviour;
+    private IEnemyBaseBehaviour _baseBehaviour;
 
-    private IEnemyBehaviour _currentBehaviour;
+    private bool _isTriggered;
 
     public MoveEnemyController MoveController { get; private set; }
 
@@ -15,38 +15,29 @@ public class Enemy : Character
         MoveController = GetComponent<MoveEnemyController>();
     }
 
-    public void Initialize(IEnemyBehaviour enemyBehaviour)
+    public void Initialize(IEnemyBaseBehaviour baseBehaviour, IEnemyTriggerBehaviour triggerBehaviour)
     {
-        _startBehaviour = enemyBehaviour;
-        SetBehaviour(enemyBehaviour);
-    }
-
-    public void SetBehaviour(IEnemyBehaviour enemyBehaviour)
-    {
-        _currentBehaviour = enemyBehaviour;        
+        _triggerBehaviour = triggerBehaviour;
+        _baseBehaviour = baseBehaviour;
     }
 
     protected override void Update()
     {
-        _currentBehaviour.Update();
+        if (_isTriggered)
+            _triggerBehaviour.Update();
+        else
+            _baseBehaviour.Update();
+
 
         base.Update();
     }
 
-    private void UpdateBehaviour(IEnemyBehaviour enemyBehaviour)
-    {
-        SetBehaviour(enemyBehaviour);
-        _currentBehaviour.UpdateTarget();
-    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent<Player>(out Player player))
         {
-            if (_triggerBehaviour == null)
-                _triggerBehaviour = new TriggerBehaviour(player, this);
-
-            UpdateBehaviour(_triggerBehaviour);
+            _isTriggered = true;
         }
     }
 
@@ -54,7 +45,8 @@ public class Enemy : Character
     {
         if (other.GetComponent<Player>() != null)
         {
-            UpdateBehaviour(_startBehaviour);
+            _isTriggered = false;
+            _baseBehaviour.UpdateTarget();
         }
     }
 }

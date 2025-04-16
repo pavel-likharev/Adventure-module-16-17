@@ -1,4 +1,4 @@
-public interface IEnemyBehaviour
+public interface IEnemyBaseBehaviour
 {
     void Update();
 
