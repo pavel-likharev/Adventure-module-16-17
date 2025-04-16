@@ -5,14 +5,17 @@ public class Enemy : Character
     private IEnemyTriggerBehaviour _triggerBehaviour;
     private IEnemyBaseBehaviour _baseBehaviour;
 
-    private bool _isTriggered;
+    private CapsuleCollider _capsuleCollider;
 
+    private bool _isTriggered;
+   
     public MoveEnemyController MoveController { get; private set; }
 
 
     private void Start()
     {
         MoveController = GetComponent<MoveEnemyController>();
+        _capsuleCollider = GetComponent<CapsuleCollider>();
     }
 
     public void Initialize(IEnemyBaseBehaviour baseBehaviour, IEnemyTriggerBehaviour triggerBehaviour)
@@ -23,6 +26,9 @@ public class Enemy : Character
 
     protected override void Update()
     {
+        if (IsDead)
+            return;
+
         if (_isTriggered)
             _triggerBehaviour.Update();
         else
@@ -30,6 +36,13 @@ public class Enemy : Character
 
 
         base.Update();
+    }
+
+    public override void MakeDeath()
+    {
+        base.MakeDeath();
+
+        _capsuleCollider.enabled = false;
     }
 
 

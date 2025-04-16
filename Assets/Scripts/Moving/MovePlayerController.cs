@@ -5,7 +5,7 @@ public class MovePlayerController : MoveCharacterController
     private InputManager _inputManager;
     private CharacterController _characterController;
 
-    private Vector3 _input;
+    public Vector3 Input { get; private set; }
 
     public override bool IsMoving { get; protected set; }
 
@@ -21,10 +21,10 @@ public class MovePlayerController : MoveCharacterController
     {
         if (IsMoving = _inputManager.HasInput())
         {
-            _input = _inputManager.UserInput;
+            Input = _inputManager.UserInput;
 
-            MoveTo(_input, _characterController);
-            RotateTo(_input);
+            MoveTo(Input, _characterController);
+            RotateTo(Input);
         }
     }
 }

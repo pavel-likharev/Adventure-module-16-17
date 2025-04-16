@@ -39,12 +39,6 @@ public class MoveEnemyController : MoveCharacterController
         Debug.Log("new dir " + _normalizedDirection);
     }
 
-    public void FindCurrentDirection2(Vector3 targetPosition, bool isReverse = false)
-    {
-        _direction = new Vector3(targetPosition.x, 0, targetPosition.z);
-        _normalizedDirection = _direction.normalized;
-    }
-
     public Vector3 GetDirectionTo(Vector3 targetPosition, bool isReverse)
     {
         Vector3 direction;

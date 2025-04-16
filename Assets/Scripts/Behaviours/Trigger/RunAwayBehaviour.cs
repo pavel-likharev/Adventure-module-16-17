@@ -19,8 +19,6 @@ public class RunAwayBehaviour : IEnemyTriggerBehaviour
 
     public void UpdateTarget()
     {
-
-
         Vector3 direction = _player.transform.position;
         _enemy.MoveController.FindCurrentDirection(direction, true);
     }

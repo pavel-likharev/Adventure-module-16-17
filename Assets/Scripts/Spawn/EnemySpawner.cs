@@ -19,7 +19,8 @@ public class EnemySpawner : MonoBehaviour
             Enemy skeleton = Instantiate(_skeletonPrefab, spawnPoint.transform);
             //skeleton.Initialize(new PatrolBehaviour(_patrolPoints, skeleton), new AttackBehaviour(_player, skeleton));
             //skeleton.Initialize(new IdleBehaviour(skeleton), new RunAwayBehaviour(_player, skeleton));
-            skeleton.Initialize(new RandomPatrolBehaviour(skeleton, _area), new AttackBehaviour(_player, skeleton)); ;
+            //skeleton.Initialize(new RandomPatrolBehaviour(skeleton, _area), new AttackBehaviour(_player, skeleton)); ;
+            skeleton.Initialize(new PatrolBehaviour(_patrolPoints, skeleton), new DeathBehaviour(skeleton)); ;
         }
     }
 }

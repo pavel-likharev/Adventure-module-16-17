@@ -7,6 +7,8 @@ public abstract class Character : MonoBehaviour
 
     protected Health _health;
 
+    public bool IsDead { get; protected set; }
+
     protected virtual void Awake()
     {
         _health = GetComponent<Health>();
@@ -33,4 +35,11 @@ public abstract class Character : MonoBehaviour
     public void MakeLoser() => _animationCharacter.StartDeathClip();
 
     public void MakeWinner() => _animationCharacter.StartWinClip();
+
+    public virtual void MakeDeath()
+    {
+        IsDead = true;
+
+        _animationCharacter.StartDeathClip();
+    }
 }
