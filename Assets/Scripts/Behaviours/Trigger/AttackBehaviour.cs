@@ -10,13 +10,7 @@ public class AttackBehaviour : IEnemyTriggerBehaviour
         _enemy = enemy;
     }
 
-
     public void Update()
-    {
-        UpdateTarget();
-    }
-
-    public void UpdateTarget()
     {
         Vector3 direction = _player.transform.position;
         _enemy.MoveController.FindCurrentDirection(direction);

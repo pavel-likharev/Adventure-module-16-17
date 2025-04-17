@@ -59,7 +59,6 @@ public class Enemy : Character
         if (other.GetComponent<Player>() != null)
         {
             _isTriggered = false;
-            _baseBehaviour.UpdateTarget();
         }
     }
 }

@@ -4,7 +4,6 @@ public abstract class Character : MonoBehaviour
 {
     protected AnimationCharacterController _animationCharacter;
     protected MoveCharacterController _moveController;
-
     protected Health _health;
 
     public bool IsDead { get; protected set; }

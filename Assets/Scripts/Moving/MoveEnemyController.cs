@@ -5,7 +5,7 @@ public class MoveEnemyController : MoveCharacterController
     private Vector3 _direction;
     private Vector3 _normalizedDirection;
 
-    private float _minDistanceToTarget = 0.01f;
+    private float _minDistanceToTarget = 0.1f;
 
     public override bool IsMoving { get; protected set; }
 
@@ -22,9 +22,6 @@ public class MoveEnemyController : MoveCharacterController
             return;
         }
 
-        //Debug.Log("direction " + _direction);
-        Debug.Log("direction mag" + _direction.magnitude);
-
         MoveTo(_normalizedDirection);
         RotateTo(_normalizedDirection);
 
@@ -35,8 +32,6 @@ public class MoveEnemyController : MoveCharacterController
     {
         _direction = GetDirectionTo(targetPosition, isReverse);
         _normalizedDirection = _direction.normalized;
-
-        Debug.Log("new dir " + _normalizedDirection);
     }
 
     public Vector3 GetDirectionTo(Vector3 targetPosition, bool isReverse)

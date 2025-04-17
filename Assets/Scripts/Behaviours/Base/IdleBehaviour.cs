@@ -9,11 +9,6 @@ public class IdleBehaviour : IEnemyBaseBehaviour
 
     public void Update()
     {
-        UpdateTarget();
-    }
-
-    public void UpdateTarget()
-    {
-        _enemy.MoveController.FindCurrentDirection(_enemy.transform.position);   
+        _enemy.MoveController.FindCurrentDirection(_enemy.transform.position);
     }
 }
